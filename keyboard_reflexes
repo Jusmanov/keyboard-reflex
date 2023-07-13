@@ -4,13 +4,13 @@ import random
 import string
 import curses
 
-# Preparing to start the game, displaying instructions and asking user to proceed. Using the stdscr.getch() function from the curses library to get user input through the press of a key. 
+# Preparing to start the game, displaying instructions and asking user to proceed. Using the stdscr.getch() function from the curses library to get user input through the press of a key. Exiting terminal to prepare to start the game when user input is received.
 def instructions():
 	stdscr = curses.initscr()
 	curses.echo()
 	stdscr.addstr(("Quickly press the key that is displayed on the screen. Get 5 points to win. Press E to proceed."))
 	key = stdscr.getch()
-	while not str(key) == str(ord('e')):
+	while str(key) != str(ord('e')):
 		key = stdscr.getch()
 		curses.noecho()
 	curses.endwin()
